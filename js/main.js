@@ -47,12 +47,10 @@
         document.getElementById("item_1").addEventListener("click",function () {
             startTime = Date.now();
             addNumber ();
-            console.log(currentNumber);
         })
     }
     function addNumber (){
-        console.log(currentNumber);
-        if (currentNumber === 25){
+        if (currentNumber === 2){
             endTime = Date.now();
             score.innerText = `${(new Number((endTime - startTime) / 1000))} 秒`;
             scorePage.style.display = "block";
