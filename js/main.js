@@ -47,6 +47,7 @@
         document.getElementById("item_1").addEventListener("touchstart",function () {
             startTime = Date.now();
             addNumber ();
+            alert(currentNumber);
         })
     }
     function addNumber (){
