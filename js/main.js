@@ -47,11 +47,10 @@
         document.getElementById("item_1").addEventListener("touchstart",function () {
             startTime = Date.now();
             addNumber ();
-            alert(currentNumber);
         })
     }
     function addNumber (){
-        if (currentNumber === 2){
+        if (currentNumber === 25){
             endTime = Date.now();
             score.innerText = `${(new Number((endTime - startTime) / 1000))} 秒`;
             scorePage.style.display = "block";
