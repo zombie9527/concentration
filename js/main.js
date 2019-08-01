@@ -44,7 +44,7 @@
         initArray(numbers);
         breakSort(numbers);
         createLi();
-        document.getElementById("item_1").addEventListener("click",function () {
+        document.getElementById("item_1").addEventListener("touchstart",function () {
             startTime = Date.now();
             addNumber ();
         })
@@ -56,7 +56,7 @@
             scorePage.style.display = "block";
         }
         currentNumber++;
-        document.getElementById(`item_${currentNumber}`).addEventListener("click",addNumber);
+        document.getElementById(`item_${currentNumber}`).addEventListener("touchstart",addNumber);
     }
     function createLi() {
         const liLength = (boxLenth / 5) - 2;
