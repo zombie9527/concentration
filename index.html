@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>专注度测试</title>
-    <link rel="stylesheet" href="style/main.css">
     <style>
         * {
             margin: 0;
@@ -12,16 +11,29 @@
             user-select: none;
         }
 
-        div {
-            position: absolute;
-            left: 0;
+        #canvas {
+            position: relative;
+            /* left: 0;
             top: 0;
             right: 0;
-            bottom: 0;
-            background-color: rgba(200, 200, 200, 0.7);
-            display: none;
+            bottom: 0; */
+            /* background-color: rgba(200, 200, 200, 0.7); */
+            /* display: none; */
             text-align: center;
-            padding-top: 200px;
+            /* padding-top: 200px; */
+        }
+
+        #libox {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* margin: -50px 0 0 0; */
+        }
+
+        li {
+            list-style: none;
+            display: inline-block;
+            font-size: 18pt;
         }
 
         button {
@@ -42,11 +54,12 @@
             color: red;
         }
 
+        /* 
         .sore {
             position: absolute;
             left: 10%;
             top: 5%;
-        }
+        } */
 
         span {
             display: block;
@@ -56,11 +69,14 @@
 </head>
 
 <body>
-    <canvas id="canvas" style="display: block;  margin: 0 auto;border: 1px solid #000;"></canvas>
+    <!-- <canvas id="canvas" style="display: block;  margin: 0 auto;"></canvas> -->
+    <div id="canvas" style="display: block;  margin: 0 auto;">
+        <ul id="libox"></ul>
+    </div>
     <div id="scorePage"
         style="background-color: rgba(202, 202, 202, 0.73);display: block;margin: 0 auto;position: absolute;width: 100%;left: 0;top: 0;padding: 30% 0;text-align: center;display: none;">
-        <h1>所耗时间</h1>
-        <h5 id=score></h5>
+        <h1>所用时间</h1>
+        <h3 id=score style="padding: 20px 0; color: #ff0000"></h5>
         <button id="reStart">重试一次</button>
     </div>
 </body>
