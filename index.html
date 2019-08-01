@@ -1,22 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>专注度测试</title>
-    <link rel="stylesheet" href="style/main.css" >
+    <link rel="stylesheet" href="style/main.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(200, 200, 200, 0.7);
+            display: none;
+            text-align: center;
+            padding-top: 200px;
+        }
+
+        button {
+            font-size: 30px;
+            width: 160px;
+            background-color: rgb(166, 209, 247);
+            color: #fff;
+            border-radius: 20% 20%;
+            font-family: cursive;
+            line-height: 50px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #over {
+            color: red;
+        }
+
+        .sore {
+            position: absolute;
+            left: 10%;
+            top: 5%;
+        }
+
+        span {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
+
 <body>
-    <span class="sore">以行走<i id="long">0</i>米</span>
     <canvas id="canvas" style="display: block;  margin: 0 auto;border: 1px solid #000;"></canvas>
-    <div id="start" style="background-color: rgba(255, 255, 255, 1);">
-        <h1 >踩黑线</h1>
-        <button id="begin">start</button>
-    </div>
-    <div id="end">
-        <h1 id="over">gameover!</h1>
-        <span></span>
-        <button id="restart">restart</button>
+    <div id="scorePage"
+        style="background-color: rgba(202, 202, 202, 0.73);display: block;margin: 0 auto;position: absolute;width: 100%;left: 0;top: 0;padding: 30% 0;text-align: center;display: none;">
+        <h1>所耗时间</h1>
+        <h5 id=score></h5>
+        <button id="reStart">重试一次</button>
     </div>
 </body>
 <script src="js/main.js"></script>
+
 </html>
