@@ -1,4 +1,4 @@
-(function () {
+// (function () {
     const numbers = [];
     let currentNumber = 1,
         startTime,
@@ -7,10 +7,11 @@
     const canvas = document.getElementById("canvas"),
         box = document.getElementById("libox"),
         scorePage = document.getElementById("scorePage"),
-        score = document.getElementById("score"); scorePage
+        score = document.getElementById("score"); 
+    const titleArray = ["棒棒哒！","超过全国%98的用户！"];
 
-    const screenWidth = document.documentElement.clientWidth,
-        screenHeight = document.documentElement.clientHeight;
+    const screenWidth = document.documentElement.clientWidth - 10,
+        screenHeight = document.documentElement.clientHeight - 30;
 
     canvas.style.width = screenWidth + "px";
     canvas.style.height = screenHeight + "px";
@@ -54,7 +55,12 @@
         if (currentNumber >= 25) {
             endTime = Date.now();
             score.innerText = `${(new Number((endTime - startTime) / 1000))} 秒`;
+            
+            document.getElementById("myModalLabel").innerText = titleArray[Math.floor(Math.random()*titleArray.length)];
             scorePage.style.display = "block";
+            scorePage.style.opacity = 1;
+            
+            // $("#scorePage").modal('show');
         }
 
         document.getElementById(`item_${(currentNumber - 1) || 1}`).className = ""
@@ -77,10 +83,9 @@
             newLi.style.width = liLength + "px";
             newLi.style.height = liLength + "px";
             newLi.style.lineHeight = liLength + "px";
-            newLi.style.border = "solid 1px #000";
             newLi.id = `item_${number}`;
             box.appendChild(newLi);
         }
     }
     init();
-})();
+// })();

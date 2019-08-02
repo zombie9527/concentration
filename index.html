@@ -10,7 +10,14 @@
     <meta property="og:image"
         content="https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/8d5494eef01f3a29527fec589225bc315d607cf4.jpg">
     <meta property="og:url" content="https://zombie9527.github.io/concentration/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
+        /* body{ */
+        /* background: url('./images/apic324.jpg') no-repeat ; 
+            background-size:100%; 
+            background-attachment:fixed; */
+        /* } */
         * {
             margin: 0;
             padding: 0;
@@ -41,33 +48,26 @@
             list-style: none;
             display: inline-block;
             font-size: 25pt;
-        }
+            /* background-color: #e6e6e6;
+            outline: 15px solid #e6e6e6;
+            outline-offset: 10px;
+            margin: 30px;
+            color: #fff;
+            border: none; */
 
-        .li:after {
-            content: "";
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            background-image: radial-gradient(circle, #666 10%, transparent 10.01%);
-            background-repeat: no-repeat;
-            background-position: 50%;
-            transform: scale(10, 10);
-            opacity: 0;
-            transition: transform .3s, opacity .5s;
-        }
 
-        .li:active:after {
-            transform: scale(0, 0);
-            opacity: .3;
-            transition: 0s;
+            border-radius: 6px;
+            color: #333;
+            background-color: #e6e6e6;
+            border: solid 1px #adadad;
+            /* box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125); */
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+            /* border-radius: "4px 4px 0 0"; */
         }
 
         .clickLi {
-            background-image: radial-gradient(#fff, rgba(90, 233, 99, 0.6));
+            box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+            /* background-image: radial-gradient(#fff, rgba(90, 233, 99, 0.6)); */
             /* transform: scale(0, 0);
             background-color: rgba(169, 224, 173, 0.6); */
         }
@@ -107,41 +107,61 @@
 <body>
     <!-- <canvas id="canvas" style="display: block;  margin: 0 auto;"></canvas> -->
     <div style="display: none">
-        <img src="https://fp.yangcong345.com/teacherStatic/media/mobile_download_page.37b8ce62.png"
-            alt="">
+        <img src="https://fp.yangcong345.com/teacherStatic/media/mobile_download_page.37b8ce62.png" alt="">
     </div>
     <div id="canvas" style="display: block;  margin: 0 auto;">
+        <h1 style="padding-top: 10%">专注度测试</h1>
         <ul id="libox"></ul>
+        <h2 style="bottom: 10%;position:absolute;">从1-25来点击，看看用时大概是多久，用时越短，专注度会越高的不仅加快阅读节奏，锻炼眼睛快速认读；达到一目十行、一目一页非常有效</h2>
     </div>
-    <div id="scorePage"
-        style="background-color: rgba(202, 202, 202, 0.87);display: block;margin: 0 auto;position: absolute;width: 100%;height: 100%;left: 0;top: 0;padding: 30% 0;text-align: center;display: none;">
-        <h1 style="font-size: 35pt;">所用时间</h1>
-        <h3 id=score style="font-size: 30pt;padding: 20px 0; color: #ff0000">
-            </h5>
-            <button id="reStart" ontouchstart="location.reload();">重试一次</button>
+    <div id="scorePage" class="modal fade bs-example-modal-lg" style="background-color: rgba(202, 202, 202, 0.87)" >
+        <div class="modal-dialog" style="text-align: center;top: 30%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="myModalLabel"></h2>
+                </div>
+                <div class="modal-body">
+                    <h1>所用时间</h1>
+                    <h3 id=score style="padding: 20px 0; color: #df5151"></h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" style="font-size: 20pt;padding: 5px 20px" class="btn btn-primary" ontouchstart="window.location.href = window.location.href + '?' + Date.now()">重试一次</button>
+                </div>
+            </div>
+        </div>
+        <!-- <h1 style="font-size: 35pt;">所用时间</h1>
+        <h3 id=score style="font-size: 30pt;padding: 20px 0; color: #ff0000"></h3> -->
+        <!-- <button id="reStart" class="btn btn-success btn-lg btn-block" ontouchstart="location.reload();"
+            style="font-size: 30pt">重试一次</button> -->
     </div>
 </body>
 <script src="js/main.js"></script>
-<script src="//res.wx.qq.com/open/js/jweixin-1.3.1.js"></script>
+<!-- <script src="//res.wx.qq.com/open/js/jweixin-1.3.1.js"></script> -->
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script> -->
 <script>
-    wx.ready(function () {
-        const share = {
-            title: '专注度测试',
-            desc: '从1-25来点击，看看用时大概是多久，用时越短，专注度会越高的不仅加快阅读节奏，锻炼眼睛快速认读；达到一目十行、一目一页非常有效',
-            imgUrl: 'https://fp.yangcong345.com/teacherStatic/media/mobile_download_page.37b8ce62.png',
-            link: 'https://zombie9527.github.io/concentration/',
-            success: function () {
-                // hideMaskLayer();  // 分享成功，隐藏引导用户分享的浮层
-            },
-            cancel: function () {
-            }
-        };
-        wx.onMenuShareAppMessage(share);  // 微信好友
-        wx.onMenuShareTimeline(share);  // 朋友圈
-        wx.onMenuShareQQ(share);  // QQ
-        wx.onMenuShareQZone(share);  // QQ空间
-        wx.onMenuShareWeibo(share);  // 腾讯微博
-    });
+    // wx.ready(function () {
+    //     const share = {
+    //         title: '专注度测试',
+    //         desc: '从1-25来点击，看看用时大概是多久，用时越短，专注度会越高的不仅加快阅读节奏，锻炼眼睛快速认读；达到一目十行、一目一页非常有效',
+    //         imgUrl: 'https://fp.yangcong345.com/teacherStatic/media/mobile_download_page.37b8ce62.png',
+    //         link: 'https://zombie9527.github.io/concentration/',
+    //         success: function () {
+    //             // hideMaskLayer();  // 分享成功，隐藏引导用户分享的浮层
+    //         },
+    //         cancel: function () {
+    //         }
+    //     };
+    //     wx.onMenuShareAppMessage(share);  // 微信好友
+    //     wx.onMenuShareTimeline(share);  // 朋友圈
+    //     wx.onMenuShareQQ(share);  // QQ
+    //     wx.onMenuShareQZone(share);  // QQ空间
+    //     wx.onMenuShareWeibo(share);  // 腾讯微博
+    // });
+    // style="background-color: rgba(202, 202, 202, 0.87);display: block;margin: 0 auto;position: absolute;width: 100%;height: 100%;left: 0;top: 0;padding: 50% 30%;text-align: center;display: none;"
 
 </script>
 
