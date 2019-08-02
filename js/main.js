@@ -42,7 +42,7 @@
 
     function init() {
         initArray(numbers);
-        // breakSort(numbers);
+        breakSort(numbers);
         createLi();
         // document.getElementById("item_1").className = "clickLi";
         document.getElementById("item_1").addEventListener("touchstart", addNumber);
@@ -52,6 +52,7 @@
             startTime = Date.now();
         }
         if (currentNumber >= 25) {
+            alert("finish");
             endTime = Date.now();
             score.innerText = `${(new Number((endTime - startTime) / 1000))} 秒`;
             scorePage.style.display = "block";
