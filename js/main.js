@@ -52,7 +52,6 @@
             startTime = Date.now();
         }
         if (currentNumber >= 25) {
-            alert("finish");
             endTime = Date.now();
             score.innerText = `${(new Number((endTime - startTime) / 1000))} 秒`;
             scorePage.style.display = "block";
