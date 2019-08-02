@@ -7,7 +7,7 @@
     const canvas = document.getElementById("canvas"),
         box = document.getElementById("libox"),
         scorePage = document.getElementById("scorePage"),
-        score = document.getElementById("score");scorePage
+        score = document.getElementById("score"); scorePage
 
     const screenWidth = document.documentElement.clientWidth,
         screenHeight = document.documentElement.clientHeight;
@@ -44,19 +44,30 @@
         initArray(numbers);
         breakSort(numbers);
         createLi();
-        document.getElementById("item_1").addEventListener("touchstart",function () {
-            startTime = Date.now();
-            addNumber ();
-        })
+        // document.getElementById("item_1").className = "clickLi";
+        document.getElementById("item_1").addEventListener("touchstart", addNumber);
     }
-    function addNumber (){
-        if (currentNumber > 25){
+    function addNumber() {
+        if (currentNumber === 1) {
+            startTime = Date.now();
+        }
+        if (currentNumber > 25) {
             endTime = Date.now();
             score.innerText = `${(new Number((endTime - startTime) / 1000))} 秒`;
             scorePage.style.display = "block";
         }
+
+        document.getElementById(`item_${(currentNumber - 1) || 1}`).className = ""
+        document.getElementById(`item_${currentNumber}`).className = "clickLi";
+        // setTimeout(() =>
+        //     document.getElementById(`item_${currentNumber}`).className = "",
+        //     500
+        // );
         currentNumber++;
-        document.getElementById(`item_${currentNumber}`).addEventListener("touchstart",addNumber);
+
+        // document.getElementById(`item_${currentNumber}`).className = "clickLi";
+        document.getElementById(`item_${currentNumber - 1}`).removeEventListener("touchstart", addNumber);
+        document.getElementById(`item_${currentNumber}`).addEventListener("touchstart", addNumber);
     }
     function createLi() {
         const liLength = (boxLenth / 5) - 2;
