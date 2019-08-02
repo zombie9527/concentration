@@ -36,6 +36,7 @@
             display: inline-block;
             font-size: 25pt;
         }
+
         .li:after {
             content: "";
             display: block;
@@ -52,16 +53,19 @@
             opacity: 0;
             transition: transform .3s, opacity .5s;
         }
+
         .li:active:after {
             transform: scale(0, 0);
             opacity: .3;
             transition: 0s;
         }
+
         .clickLi {
             background-image: radial-gradient(#fff, rgba(90, 233, 99, 0.6));
             /* transform: scale(0, 0);
             background-color: rgba(169, 224, 173, 0.6); */
         }
+
         button {
             font-size: 30px;
             width: 160px;
@@ -96,15 +100,19 @@
 
 <body>
     <!-- <canvas id="canvas" style="display: block;  margin: 0 auto;"></canvas> -->
-    <img src="https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/8d5494eef01f3a29527fec589225bc315d607cf4.jpg" alt="" style="display: none">
+    <div style="display: none">
+        <img src="https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/8d5494eef01f3a29527fec589225bc315d607cf4.jpg"
+            alt="">
+    </div>
     <div id="canvas" style="display: block;  margin: 0 auto;">
         <ul id="libox"></ul>
     </div>
     <div id="scorePage"
         style="background-color: rgba(202, 202, 202, 0.87);display: block;margin: 0 auto;position: absolute;width: 100%;height: 100%;left: 0;top: 0;padding: 30% 0;text-align: center;display: none;">
         <h1 style="font-size: 35pt;">所用时间</h1>
-        <h3 id=score style="font-size: 30pt;padding: 20px 0; color: #ff0000"></h5>
-        <button id="reStart" ontouchstart="location.reload();">重试一次</button>
+        <h3 id=score style="font-size: 30pt;padding: 20px 0; color: #ff0000">
+            </h5>
+            <button id="reStart" ontouchstart="location.reload();">重试一次</button>
     </div>
 </body>
 <script src="js/main.js"></script>
