@@ -51,7 +51,7 @@
         if (currentNumber === 1) {
             startTime = Date.now();
         }
-        if (currentNumber > 25) {
+        if (currentNumber >= 25) {
             endTime = Date.now();
             score.innerText = `${(new Number((endTime - startTime) / 1000))} 秒`;
             scorePage.style.display = "block";
