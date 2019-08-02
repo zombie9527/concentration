@@ -42,7 +42,7 @@
 
     function init() {
         initArray(numbers);
-        breakSort(numbers);
+        // breakSort(numbers);
         createLi();
         // document.getElementById("item_1").className = "clickLi";
         document.getElementById("item_1").addEventListener("touchstart", addNumber);
