@@ -156,6 +156,8 @@
             cancel: function () {
             }
         };
+        wx.updateAppMessageShareData(share);
+        wx.updateTimelineShareData (share);
         wx.onMenuShareAppMessage(share);  // 微信好友
         wx.onMenuShareTimeline(share);  // 朋友圈
         wx.onMenuShareQQ(share);  // QQ
