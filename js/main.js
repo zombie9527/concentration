@@ -84,7 +84,7 @@
     httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState == 4 && httpRequest.status == 200) {
             var json = httpRequest.responseText;//获取到json字符串，还需解析
-            Wx.config(JSON.parse(json));
+            wx.config(JSON.parse(json));
         }
     };
     function createLi() {
