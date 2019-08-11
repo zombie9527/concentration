@@ -75,6 +75,18 @@
         document.getElementById(`item_${currentNumber - 1}`).removeEventListener("touchstart", addNumber);
         document.getElementById(`item_${currentNumber}`).addEventListener("touchstart", addNumber);
     }
+    var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+    httpRequest.open('GET', 'http://zombie.imwork.net/repo/wechat/config', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+    httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+    /**
+     * 获取数据后的处理程序
+     */
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            var json = httpRequest.responseText;//获取到json字符串，还需解析
+            Wx.config(JSON.parse(json));
+        }
+    };
     function createLi() {
         const liLength = (boxLenth / 5) - 2;
         for (const number of numbers) {
