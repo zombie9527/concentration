@@ -6,3 +6,6 @@
 
 
 (建议在手机端品尝)https://zombie9527.github.io/concentration/
+
+小程序版
+(images/gh_11b0e1edc351_344.jpg)
